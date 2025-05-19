@@ -1,55 +1,57 @@
-# Snaptrude Web Automation Framework
+# 3D Drawing Tool Automation
 
-A modern Selenium WebDriver framework showcasing test automation best practices for the Snaptrude web application.
+Automated test suite for a modern 3D drawing web application, demonstrating comprehensive test coverage of core functionalities.
 
-## 🚀 Key Features
+## 🎨 Test Coverage
 
-- Page Object Model (POM) implementation
-- Cross-browser testing (Chrome, Firefox, Edge)
-- Configurable test settings
-- Explicit wait strategies
-- Comprehensive logging
-- Modular architecture
+### User Authentication
+- Secure sign-up process
+- Profile creation and management
+- User preferences setup
 
-## 🛠️ Tech Stack
+### Drawing Features
+- Canvas initialization
+- Basic shape drawing (triangles, quadrilaterals)
+- Drawing tool selection
+- Tool switching and shortcuts
 
-- Java 8+
+### Project Management
+- New project creation
+- Project naming
+- Unit system selection
+- Project saving and loading
+
+### Application Security
+- HTTPS protocol verification
+- Secure data transmission
+- Session management
+
+## 🛠️ Technical Implementation
+
 - Selenium WebDriver
-- TestNG
-- Maven
-
-## 📋 Test Coverage
-
-- Security verification (HTTPS)
-- User authentication (Sign-up)
-- Application features (Drawing tools, Canvas operations)
-
-## 🏗️ Project Structure
-
-```
-src/main/java/com/snaptrude/
-├── config/         # Configuration
-├── pages/          # Page Objects
-├── tests/          # Test Classes
-└── utils/          # Utilities
-```
+- Page Object Model
+- Cross-browser support
+- Configurable test settings
 
 ## 🚀 Quick Start
 
-1. **Prerequisites**
-   - Java JDK 8+
-   - Maven
-   - Chrome/Firefox/Edge
+```bash
+mvn clean test
+```
 
-2. **Run Tests**
-   ```bash
-   mvn clean test
-   ```
+## 📋 Test Scenarios
 
-## 🔍 Best Practices
+1. **User Onboarding**
+   - Verify secure connection
+   - Complete sign-up process
+   - Set user preferences
 
-- POM design pattern
-- Explicit waits
-- Exception handling
-- Clean architecture
-- Cross-browser support
+2. **Drawing Operations**
+   - Create basic shapes
+   - Use drawing tools
+   - Apply keyboard shortcuts
+
+3. **Project Workflow**
+   - Create new projects
+   - Set project parameters
+   - Save and manage projects
