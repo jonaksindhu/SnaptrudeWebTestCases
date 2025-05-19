@@ -4,6 +4,7 @@ import com.snaptrude.pages.LoginPage;
 import com.snaptrude.utils.TestUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.time.Duration;
 
 public class SnaptrudeTest extends BaseTest {
 
