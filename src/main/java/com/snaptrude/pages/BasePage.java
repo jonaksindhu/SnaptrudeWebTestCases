@@ -47,4 +47,9 @@ public class BasePage {
             return false;
         }
     }
+
+    protected void type(WebElement element, String text) {
+        element.clear();
+        element.sendKeys(text);
+    }
 } 
