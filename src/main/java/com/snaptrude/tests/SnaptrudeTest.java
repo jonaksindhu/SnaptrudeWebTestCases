@@ -35,14 +35,10 @@ public class SnaptrudeTest extends BaseTest {
 
     // TC 1: Verify that the site loads and is HTTPS secure
     @Test(priority = 1, description = "TC 1: Verify that the site loads and is HTTPS secure")
-    public void loadurl(){
+    public void loadurl() {
         driver.get("https://app.snaptrude.com");
         String url = driver.getCurrentUrl();
-        try {
-            Assert.assertTrue(url.contains("https://"));
-        } catch (Throwable e) {
-            System.out.println("The site is not HTTP secure");
-        }
+        Assert.assertTrue(url.contains("https://"), "The site is not HTTP secure");
         System.out.println("The Site is HTTPS secure");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
@@ -61,6 +57,8 @@ public class SnaptrudeTest extends BaseTest {
         signUpPage.selectRemoteTeamsOption();
         signUpPage.selectClientCommunicationOption();
         signUpPage.clickGetStartedButton();
+        // Assert: Check if redirected to home/dashboard (URL or element)
+        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "Sign up did not redirect to dashboard");
     }
 
     // TC 3: Upload a profile picture using the profile settings
@@ -69,6 +67,9 @@ public class SnaptrudeTest extends BaseTest {
         ProfilePage profilePage = new ProfilePage(driver);
         profilePage.goToAccount();
         profilePage.uploadProfilePicture("/Users/jonaksindhudas/Desktop/Screenshots/Screenshot 2022-03-10 at 12.59.02 PM.png");
+        // Assert: Check if profile picture element is displayed (example selector)
+        // Replace with actual selector for profile picture if available
+        // Assert.assertTrue(driver.findElement(By.cssSelector("img.profile-picture")).isDisplayed(), "Profile picture not uploaded");
     }
 
     // TC 4: Create a new project and select measurement units
@@ -79,6 +80,9 @@ public class SnaptrudeTest extends BaseTest {
         homePage.enterProjectName("QA Interview");
         homePage.selectUnits("Inches");
         homePage.clickCreate();
+        // Assert: Check if project is created (example: project name appears)
+        // Replace with actual selector for project name if available
+        // Assert.assertTrue(driver.findElement(By.xpath("//div[contains(text(),'QA Interview')]")).isDisplayed(), "Project not created");
     }
 
     // TC 5: Draw shapes (triangle and quadrilateral) on the canvas using the draw tool
@@ -89,6 +93,8 @@ public class SnaptrudeTest extends BaseTest {
         drawPage.selectDrawTool();
         drawPage.drawTriangleAndQuadrilateral();
         drawPage.goToDashboard();
+        // Assert: Check if returned to dashboard (URL or element)
+        Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"), "Did not return to dashboard after drawing");
     }
 
     // TC 6: Calculate the number of static sources in the canvas
@@ -102,6 +108,8 @@ public class SnaptrudeTest extends BaseTest {
         StaticSourcePage staticSourcePage = new StaticSourcePage(driver);
         int staticSourceCount = staticSourcePage.countStaticSources();
         System.out.println("The Number of Static Sources in the draw page is : " + staticSourceCount);
+        // Assert: There should be at least one static source
+        Assert.assertTrue(staticSourceCount > 0, "No static sources found in the canvas");
     }
 
     @AfterTest
