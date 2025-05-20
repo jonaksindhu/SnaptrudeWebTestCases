@@ -28,7 +28,7 @@ public class SnaptrudeTest extends BaseTest {
 
     @BeforeTest
     public void loadChromeBroswer(){
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver 2");
+        System.setProperty("webdriver.chrome.driver", "../drivers/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
